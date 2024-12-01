@@ -20,9 +20,15 @@ string[] testDataDay1 = new string[]
 var sum = solutionDay1Part2(prodData);
 Console.WriteLine("Sum: " + sum);
 
+
+long solutionDay2(string[] data)
+{
+    Console.WriteLine("Day 2 Part 1");
+    return 0;
+}
 long solutionDay1Part2(string[] data)
 {
-    Console.WriteLine("Day 1 part2");
+    Console.WriteLine("Day 1 Part 2");
 
     List<long> left = new List<long>();
     List<long> right = new List<long>();
@@ -37,32 +43,33 @@ long solutionDay1Part2(string[] data)
     for (int counter = 0; counter < left.Count; counter++)
     {
         long number = left[counter];
-        int count=right.Count(n => n == number);
-        sum+=number* count;
+        int count = right.Count(n => n == number);
+        sum += number * count;
     }
     return sum;
 }
-long solutionDay1(string[] testData) {
-    Console.WriteLine("Day 1 part1");
+long solutionDay1(string[] data)
+{
+    Console.WriteLine("Day 1 Part 1");
 
     List<long> left = new List<long>();
     List<long> right = new List<long>();
-    foreach (string rows in testData)
+    foreach (string rows in data)
     {
-        string[] row= rows.Split("   ");
+        string[] row = rows.Split("   ");
         left.Add(long.Parse(row[0]));
-        right.Add(long.Parse(row[1]));  
+        right.Add(long.Parse(row[1]));
     }
-    
+
     left.Sort();
     right.Sort();
     long sum = 0;
-    for (int counter= 0; counter < left.Count; counter++)
+    for (int counter = 0; counter < left.Count; counter++)
     {
-        long difference=Math.Abs(left[counter] - right[counter]);
+        long difference = Math.Abs(left[counter] - right[counter]);
         sum += difference;
     }
-    return sum;   
+    return sum;
 }
 
 
